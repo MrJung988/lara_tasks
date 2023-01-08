@@ -151,3 +151,16 @@
       background: #ecf2f5;
       padding: 10px;
   }
+
+  .popupMessage {
+      border: 1px solid;
+      width: 35%;
+      text-align: center;
+      padding: 10px;
+      background: skyblue;
+      color: white;
+      font-weight: bold;
+      position: absolute;
+      top: 15%;
+      left: 31%;
+  }

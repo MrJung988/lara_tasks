@@ -9,8 +9,17 @@
 
 <body>
     <!-- Begin Page Content -->
+    <div id="popupMessage">
+        @if (session()->has('success'))
+        <div class="alert alert-success">{{session('success')}}</div>
+        @endif
+        @if (session()->has('error'))
+        <div class="alert alert-danger">{{session('error')}}</div>
+        @endif
+    </div>
     <div id="container">
-        <form action="" method="post">
+        <form action="{{ route('loginUser') }}" method="post">
+            @csrf
             <label for="email">Email:</label>
             <input type="text" id="email" name="email">
             <label for="password">Password:</label>

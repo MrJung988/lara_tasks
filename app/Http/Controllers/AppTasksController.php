@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AppTasks;
 use Illuminate\Http\Request;
 
 class AppTasksController extends Controller
@@ -13,7 +14,8 @@ class AppTasksController extends Controller
      */
     public function index()
     {
-        //
+        $tasks = AppTasks::all();
+        return view('Tasks.reply', compact('tasks'));
     }
 
     /**
@@ -23,7 +25,7 @@ class AppTasksController extends Controller
      */
     public function create()
     {
-        //
+        return view('tasks.create');
     }
 
     /**
@@ -34,7 +36,11 @@ class AppTasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = new AppTasks();
+        $task->is_active = $request->is_active;
+        $task->save();
+
+        return redirect()->back()->with('success', 'Task saved successfully!');
     }
 
     /**
@@ -43,9 +49,9 @@ class AppTasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(AppTasks $task)
     {
-        //
+        return view('tasks.show', compact('task'));
     }
 
     /**
@@ -54,9 +60,9 @@ class AppTasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(AppTasks $task)
     {
-        //
+        return view('tasks.edit', compact('task'));
     }
 
     /**
@@ -66,9 +72,11 @@ class AppTasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, AppTasks $task)
     {
-        //
+        $task->save();
+
+        return redirect()->back()->with('success', 'Task updated successfully!');
     }
 
     /**
@@ -77,8 +85,10 @@ class AppTasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(AppTasks $task)
     {
-        //
+        $task->delete();
+
+        return redirect()->back()->with('success', 'Task deleted successfully!');
     }
 }
