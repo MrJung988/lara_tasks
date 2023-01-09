@@ -30,7 +30,7 @@ class UserController extends Controller
         // dd(Auth::attempt($attributes));
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->route('index')->with('success', 'You are successfully logged in.');
+            return redirect()->route('tasks')->with('success', 'You are successfully logged in.');
         } else {
             return back()->with('error', 'You have to enter valid details.');
         }

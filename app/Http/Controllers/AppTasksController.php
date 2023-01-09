@@ -15,7 +15,7 @@ class AppTasksController extends Controller
     public function index()
     {
         $tasks = AppTasks::all();
-        return view('Tasks.reply', compact('tasks'));
+        return view('Tasks.index', compact('tasks'));
     }
 
     /**
@@ -25,7 +25,7 @@ class AppTasksController extends Controller
      */
     public function create()
     {
-        return view('tasks.create');
+        return view('Tasks.create');
     }
 
     /**
@@ -51,7 +51,7 @@ class AppTasksController extends Controller
      */
     public function show(AppTasks $task)
     {
-        return view('tasks.show', compact('task'));
+        return view('Tasks.show', compact('task'));
     }
 
     /**
@@ -62,7 +62,7 @@ class AppTasksController extends Controller
      */
     public function edit(AppTasks $task)
     {
-        return view('tasks.edit', compact('task'));
+        return view('Tasks.edit', compact('task'));
     }
 
     /**

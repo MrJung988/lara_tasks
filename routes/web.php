@@ -14,7 +14,7 @@ Route::post('/login', [UserController::class, 'loginUser'])->middleware('guest')
 Route::get('/signup', [UserController::class, 'signup'])->middleware('guest');
 Route::post('/signup', [UserController::class, 'signupUser'])->middleware('guest')->name('signupUser');
 
-Route::get('/app-tasks', [AppTasksController::class, 'index'])->middleware('auth')->name('index');
+Route::get('/tasks', [AppTasksController::class, 'index'])->middleware('auth')->name('tasks');
 
 Route::get('tasks/{task}/reply', [TaskController::class, 'reply'])->name('tasks.reply');
 
