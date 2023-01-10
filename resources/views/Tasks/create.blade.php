@@ -10,7 +10,7 @@
     </div>
     <div>
         <label for="taskName">Task Name</label>
-        <input type="text" name="taskName" id="taskName">
+        <input type="text" name="name" id="taskName">
     </div>
     <div>
         <label for="Description">Description</label>
@@ -30,20 +30,22 @@
     </div>
     <div>
         <label for="dt_starting">Starting Date</label>
-        <input type="datetime" name="dt_starting" id="dt_starting">
+        <input type="date" name="dt_starting" id="dt_starting">
     </div>
     <div>
         <label for="dt_done">Ending Date</label>
-        <input type="datetime" name="dt_done" id="dt_done">
+        <input type="date" name="dt_done" id="dt_done">
     </div>
     <div>
         <label for="is_done">Is Done</label>
-        <input type="checkbox" name="is_done" id="is_done">
+        <input type="hidden" name="is_done" id="is_done" value="0">
+        <input type="checkbox" name="is_done" id="is_done" value="1">0
     </div>
     <div>
         <label for="is_active">Is Active</label>
 
-        <input type="checkbox" name="is_active" id="is_active">
+        <input type="hidden" name="is_active" id="is_active" value="0">
+        <input type="checkbox" name="is_active" id="is_active" value="1">
     </div>
     <button type="submit">Save</button>
 </form>

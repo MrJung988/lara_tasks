@@ -36,11 +36,21 @@ class AppTasksController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $task = new AppTasks();
+        $task->task_parent_id = $request->task_parent_id;
+        $task->name = $request->name;
+        $task->description = $request->Description;
+        $task->main_task_parent_id = $request->main_task_parent_id;
+        $task->by_user_id = $request->by_user_id;
+        $task->to_user_id = $request->to_user_id;
+        $task->dt_starting = $request->dt_starting;
+        $task->dt_done = $request->dt_done;
+        $task->is_done = $request->is_done;
         $task->is_active = $request->is_active;
         $task->save();
 
-        return redirect()->back()->with('success', 'Task saved successfully!');
+        return redirect()->route('tasks')->with('success', 'Task saved successfully!');
     }
 
     /**

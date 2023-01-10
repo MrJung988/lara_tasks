@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function reply()
+    public function reply(AppTasks $task)
     {
-        return view('Tasks.reply');
+        return view('Tasks.reply', compact('task'));
     }
 }

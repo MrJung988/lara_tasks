@@ -11,7 +11,7 @@ class AppTasks extends Model
 
     protected $fillable = [
         'task_parent_id',
-        'taskName',
+        'name',
         'Description',
         'main_task_parent_id',
         'by_user_id',
@@ -41,5 +41,4 @@ class AppTasks extends Model
     {
         return $this->belongsTo(User::class, 'to_user_id');
     }
-
 }

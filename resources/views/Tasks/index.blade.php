@@ -2,30 +2,34 @@
 
 @section('content')
 <h1>Tasks</h1>
-<table>
+<a href="{{ route('tasks.create') }}"><button class="btn btn-primary">Add Tasks</button></a>
+<table class="table" id="myTable">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Parent ID</th>
-            <th>Task Name</th>
-            <th>Description</th>
-            <th>Main Parent ID</th>
-            <th>By User ID</th>
-            <th>To User ID</th>
-            <th>Starting Date</th>
-            <th>Ending Date</th>
-            <th>Is Done</th>
-            <th>Is Active</th>
-            <th>Actions</th>
+            <th scope="col">ID</th>
+            <th scope="col">Parent ID</th>
+            <th scope="col">Task Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Main Parent ID</th>
+            <th scope="col">By User ID</th>
+            <th scope="col">To User ID</th>
+            <th scope="col">Starting Date</th>
+            <th scope="col">Ending Date</th>
+            <th scope="col">Is Done</th>
+            <th scope="col">Is Active</th>
+            <th scope="col">Actions</th>
         </tr>
     </thead>
     <tbody>
+        @php
+        $i = 1;
+        @endphp
         @foreach($tasks as $task)
         <tr>
-            <td>{{ $task->id }}</td>
+            <td>{{ $i }}</td>
             <td>{{ $task->task_parent_id }}</td>
-            <td>{{ $task->taskName }}</td>
-            <td>{{ $task->Description }}</td>
+            <td>{{ $task->name }}</td>
+            <td>{{ $task->description }}</td>
             <td>{{ $task->main_task_parent_id }}</td>
             <td>{{ $task->by_user_id }}</td>
             <td>{{ $task->to_user_id }}</td>
@@ -43,7 +47,25 @@
                 </form>
             </td>
         </tr>
+        @php
+        $i++;
+        @endphp
         @endforeach
     </tbody>
 </table>
+
+<footer>
+    <a href="{{ route('logout') }}">Logout</a>
+</footer>
+
+
+
 @endsection
+
+@push('js')
+<script>
+    $(document).ready(function() {
+        $('#myTable').DataTable();
+    });
+</script>
+@endpush
