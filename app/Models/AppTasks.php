@@ -12,7 +12,7 @@ class AppTasks extends Model
     protected $fillable = [
         'task_parent_id',
         'name',
-        'Description',
+        'description',
         'main_task_parent_id',
         'by_user_id',
         'to_user_id',

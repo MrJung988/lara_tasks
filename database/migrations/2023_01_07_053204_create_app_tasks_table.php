@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('app_tasks', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('task_parent_id')->nullable();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->text('description');
             $table->unsignedBigInteger('main_task_parent_id')->nullable();
-            $table->unsignedBigInteger('by_user_id');
-            $table->unsignedBigInteger('to_user_id');
+            $table->unsignedBigInteger('by_user_id')->nullable();
+            $table->unsignedBigInteger('to_user_id')->nullable();
             $table->timestamp('dt_starting')->nullable();
             $table->timestamp('dt_done')->nullable();
             $table->boolean('is_done')->default(0);

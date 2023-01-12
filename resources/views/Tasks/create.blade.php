@@ -39,7 +39,7 @@
     <div>
         <label for="is_done">Is Done</label>
         <input type="hidden" name="is_done" id="is_done" value="0">
-        <input type="checkbox" name="is_done" id="is_done" value="1">0
+        <input type="checkbox" name="is_done" id="is_done" value="1">
     </div>
     <div>
         <label for="is_active">Is Active</label>

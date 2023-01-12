@@ -2,22 +2,22 @@
 
 @section('content')
 <h1>Reply to Task</h1>
-<form action="{{ route('tasks.store') }}" method="POST">
+<form action="{{ route('tasks.reply.store', $task->id) }}" method="POST">
     @csrf
     <input type="hidden" name="task_parent_id" value="{{ $task->id }}"> // set the task_parent_id to the id of the previous task
-    <div>
+    <!-- <div>
         <label for="taskName">Task Name</label>
-        <input type="text" name="taskName" id="taskName">
-    </div>
+        <input type="text" name="name" id="taskName">
+    </div> -->
     <div>
         <label for="Description">Description</label>
-        <textarea name="Description" id="Description"></textarea>
+        <textarea name="description" id="Description"></textarea>
     </div>
     <div>
         <label for="main_task_parent_id">Main Parent ID</label>
         <input type="number" name="main_task_parent_id" id="main_task_parent_id">
     </div>
-    <div>
+    <!-- <div>
         <label for="by_user_id">By User ID</label>
         <input type="number" name="by_user_id" id="by_user_id">
     </div>
@@ -40,7 +40,7 @@
     <div>
         <label for="is_active">Is Active</label>
         <input type="checkbox" name="is_active" id="is_active">
-    </div>
+    </div> -->
     <button type="submit">Save</button>
 </form>
 @endsection

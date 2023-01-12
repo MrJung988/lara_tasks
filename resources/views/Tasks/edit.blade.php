@@ -11,11 +11,11 @@
     </div>
     <div>
         <label for="taskName">Task Name</label>
-        <input type="text" name="taskName" id="taskName" value="{{ $task->taskName }}">
+        <input type="text" name="taskName" id="taskName" value="{{ $task->name }}">
     </div>
     <div>
         <label for="Description">Description</label>
-        <textarea name="Description" id="Description">{{ $task->Description }}</textarea>
+        <textarea name="Description" id="Description">{{ $task->description }}</textarea>
     </div>
     <div>
         <label for="main_task_parent_id">Main Parent ID</label>
@@ -38,11 +38,13 @@
     </div>
     <div>
         <label for="is_done">Is Done</label>
-        <input type="checkbox" name="is_done" id="is_done" {{ $task->is_done ? 'checked' : '' }}>
+        <input type="hidden" name="is_done" id="is_done" value="0">
+        <input type="checkbox" name="is_done" id="is_done" value="1" {{ $task->is_done ? 'checked' : '' }}>
     </div>
     <div>
         <label for="is_active">Is Active</label>
-        <input type="checkbox" name="is_active" id="is_active" {{ $task->is_active ? 'checked' : '' }}>
+        <input type="hidden" name="is_active" id="is_active" value="0">
+        <input type="checkbox" name="is_active" id="is_active" value="1" {{ $task->is_active ? 'checked' : '' }}>
     </div>
     <button type="submit">Save</button>
 </form>

@@ -70,8 +70,9 @@ class AppTasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(AppTasks $task)
+    public function edit($task)
     {
+        $task = AppTasks::find($task);
         return view('Tasks.edit', compact('task'));
     }
 
@@ -82,8 +83,19 @@ class AppTasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AppTasks $task)
+    public function update(Request $request, $task)
     {
+        $task = AppTasks::find($task);
+        $task->task_parent_id = $request->task_parent_id;
+        $task->name = $request->name;
+        $task->description = $request->Description;
+        $task->main_task_parent_id = $request->main_task_parent_id;
+        $task->by_user_id = $request->by_user_id;
+        $task->to_user_id = $request->to_user_id;
+        $task->dt_starting = $request->dt_starting;
+        $task->dt_done = $request->dt_done;
+        $task->is_done = $request->is_done;
+        $task->is_active = $request->is_active;
         $task->save();
 
         return redirect()->back()->with('success', 'Task updated successfully!');

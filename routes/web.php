@@ -20,9 +20,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tasks-create', [AppTasksController::class, 'create'])->name('tasks.create');
     Route::post('/tasks-store', [AppTasksController::class, 'store'])->name('tasks.store');
     Route::get('/tasks/{task}', [AppTasksController::class, 'show'])->name('tasks.show');
-    Route::put('/tasks', [AppTasksController::class, 'edit'])->name('tasks.edit');
+    Route::get('/tasks/edit/{task}', [AppTasksController::class, 'edit'])->name('tasks.edit');
+    Route::put('/tasks/edit/{task}', [AppTasksController::class, 'update'])->name('tasks.update');
     Route::delete('/tasks/{task}', [AppTasksController::class, 'destroy'])->name('tasks.destroy');
-    Route::get('tasks/{task}/reply', [TaskController::class, 'reply'])->name('tasks.reply');
+
+
+    Route::get('tasks/reply/{task}', [TaskController::class, 'reply'])->name('tasks.reply');
+    Route::post('tasks/reply/{task}', [TaskController::class, 'replyStore'])->name('tasks.reply.store');
+    Route::get('task/reply-view', [TaskController::class, 'replyView'])->name('reply.view');
 
 
     Route::get('/logout', [UserController::class, 'logout'])->name('logout');

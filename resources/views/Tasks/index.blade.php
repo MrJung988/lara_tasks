@@ -3,7 +3,7 @@
 @section('content')
 <h1>Tasks</h1>
 <a href="{{ route('tasks.create') }}"><button class="btn btn-primary">Add Tasks</button></a>
-<table class="table" id="myTable">
+<table class="table" id="">
     <thead>
         <tr>
             <th scope="col">ID</th>
@@ -38,12 +38,13 @@
             <td>{{ $task->is_done }}</td>
             <td>{{ $task->is_active }}</td>
             <td>
-                <a href="{{ route('tasks.show', $task->id) }}">View</a>
-                <a href="{{ route('tasks.edit', $task->id) }}">Edit</a>
+                <a href="{{ route('tasks.reply', $task->id) }}" class="btn btn-primary">Reply</a>
+                <a href="{{ route('tasks.show', $task->id) }}" class="btn btn-info">View</a>
+                <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning">Edit</a>
                 <form action="{{ route('tasks.destroy', $task->id) }}" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit">Delete</button>
+                    <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </td>
         </tr>
@@ -63,9 +64,9 @@
 @endsection
 
 @push('js')
-<script>
+<!-- <script>
     $(document).ready(function() {
         $('#myTable').DataTable();
     });
-</script>
+</script> -->
 @endpush
