@@ -27,7 +27,7 @@
             <span class="text-danger small required">@error('username') {{$message}} @enderror</span>
 
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email">
+            <input type="email" id="email" name="email">
             <span class="text-danger small required">@error('email') {{$message}} @enderror</span>
 
             <label for="new_password">New Password:</label>

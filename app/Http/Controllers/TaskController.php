@@ -20,8 +20,9 @@ class TaskController extends Controller
         $reply_task->description = $request->description;
         $reply_task->main_task_parent_id = $request->main_task_parent_id;
         $reply_task->save();
-
-        $tasks = AppTasks::where('task_main_parent_id', $task);
+        // dd($task);
+        $tasks = AppTasks::where('main_task_parent_id', $task)->get();
+        // dd($tasks);
 
         return view('Tasks.reply-view', compact('tasks'))->with('success', 'Successfully reply saved');
     }
